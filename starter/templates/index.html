@@ -7,12 +7,31 @@
 </head>
 <body>
   <h1>Sudoku Game</h1>
-  <div id="sudoku-board"></div>
+  <button id="theme-toggle" type="button" aria-pressed="false">Dark Mode</button>
+  <main>
+    <div id="sudoku-board" role="grid" aria-label="Sudoku puzzle" aria-rowcount="9" aria-colcount="9"></div>
+    <section id="leaderboard" aria-live="polite" aria-label="Top 10 leaderboard"></section>
+  </main>
   <div class="controls">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="">Standard</option>
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
     <button id="new-game">New Game</button>
-    <button id="check-solution">Check Solution</button>
-    <span id="message"></span>
+    <button id="check-puzzle">Check Puzzle</button>
+    <button id="solve-puzzle">Solve</button>
+    <button id="hint">Hint</button>
+    <button id="note-mode" type="button" aria-pressed="false">Note Mode: Off</button>
+    <span id="hint-count" role="status" aria-live="polite">Hints: 0</span>
+    <span>Time: <strong id="timer" role="timer" aria-live="off">00:00</strong></span>
+    <span id="message" role="status" aria-live="polite" aria-atomic="true"></span>
   </div>
+  <script src="/static/timer.js"></script>
+  <script src="/static/leaderboard.js"></script>
+  <script src="/static/theme.js"></script>
   <script src="/static/main.js"></script>
 </body>
 </html>
